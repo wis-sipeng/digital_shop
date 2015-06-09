@@ -16,7 +16,7 @@ public class ProductDaoImpl implements ProductDao{
 
 	public List<Product> searchProductBySearchBox(String searchBox) {
 		
-		String hql="from Product as pro where pro.proName='"+searchBox+"'";
+		String hql="from Product as pro where pro.proName like '%"+searchBox+"%'";
 		List<Product> list=sessionFactory.getCurrentSession().createQuery(hql).list();
 		return list;
 	}
